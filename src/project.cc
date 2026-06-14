@@ -448,7 +448,7 @@ Project::Entry Project::findEntry(const std::string &path, bool can_redirect, bo
         // Find local .ccls file to get args
         auto cur = path;
         while (!(cur = sys::path::parent_path(cur)).empty()) {
-            auto ccls_path = cur + g_config->cache.dotCCLSFile;
+            auto ccls_path = cur + "/" + g_config->cache.dotCCLSFile;
             if(g_config->cache.dotCCLSOverlayOrigPath != "" && g_config->cache.dotCCLSOverlayReplacePath != "") {
                 auto pos = ccls_path.find(g_config->cache.dotCCLSOverlayOrigPath);
                 if(pos != std::string::npos) {
